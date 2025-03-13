@@ -46,7 +46,7 @@ resource "aws_s3_bucket_acl" "app" {
   ]
 
   bucket = aws_s3_bucket.app.id
-  acl    = "public-read"
+  acl    = "public-read-write"
 }
 
 resource "aws_s3_bucket_website_configuration" "app" {
