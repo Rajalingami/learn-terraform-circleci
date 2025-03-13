@@ -26,7 +26,7 @@ resource "aws_s3_bucket" "app" {
 resource "aws_s3_bucket_ownership_controls" "app" {
   bucket = aws_s3_bucket.app.id
   rule {
-    object_ownership = "BucketOwnerPreferred"
+    object_ownership = "Bucketownerenforced"
   }
 }
 
@@ -46,7 +46,7 @@ resource "aws_s3_bucket_acl" "app" {
   ]
 
   bucket = aws_s3_bucket.app.id
-  acl    = "public-read-write"
+  acl    = "bucket-owner-full-control"
 }
 
 resource "aws_s3_bucket_website_configuration" "app" {
@@ -62,7 +62,7 @@ resource "aws_s3_bucket_website_configuration" "app" {
 }
 
 resource "aws_s3_object" "app" {
-  acl          = "public-read-write"
+  acl          = "bucket-owner-full-control"
   key          = "index.html"
   bucket       = aws_s3_bucket.app.id
   content      = file("./assets/index.html")
