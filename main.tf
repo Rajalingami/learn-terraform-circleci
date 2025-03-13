@@ -46,7 +46,7 @@ resource "aws_s3_bucket_acl" "app" {
   ]
 
   bucket = aws_s3_bucket.app.id
-  acl    = "bucket-owner-full-control"
+  acl    = "public-read"
 }
 
 resource "aws_s3_bucket_website_configuration" "app" {
@@ -62,7 +62,7 @@ resource "aws_s3_bucket_website_configuration" "app" {
 }
 
 resource "aws_s3_object" "app" {
-  acl          = "bucket-owner-full-control"
+  acl          = "public-read"
   key          = "index.html"
   bucket       = aws_s3_bucket.app.id
   content      = file("./assets/index.html")
