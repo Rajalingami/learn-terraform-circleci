@@ -27,7 +27,7 @@ resource "aws_s3_bucket_ownership_controls" "app" {
   bucket = aws_s3_bucket.app.id
   rule {
 #    object_ownership = "BucketOwnerPreferred"
-    object_ownership = "ObjectOwner"
+    object_ownership = "BucketOwnerPreferred"
   }
   depends_on = [aws_s3_bucket.app]
 }
