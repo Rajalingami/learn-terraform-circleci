@@ -2,5 +2,5 @@
 # SPDX-License-Identifier: MIT
 
 region = "us-east-1"
-label  = "hashicorp.fun"
+label  = "hashicorp.funNew"
 app    = "terramino"
